@@ -1,4 +1,4 @@
-import v1.*;
+import v2.*;
 
 public class Test {
     public static void main(String[] args) {
