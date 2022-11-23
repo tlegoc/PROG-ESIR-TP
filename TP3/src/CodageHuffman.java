@@ -18,7 +18,7 @@ public class CodageHuffman {
     // 0. Saisir le nom du fichier à coder (À FAIRE)
     // ------------------------------------------------------------------------
     Scanner sc = new Scanner(System.in);
-    String nomFichier = "a.txt";
+    String nomFichier = "TP3/a.txt";
     sc.close();
 
     // ------------------------------------------------------------------------
