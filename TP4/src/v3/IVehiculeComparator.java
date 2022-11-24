@@ -1,17 +1,22 @@
-package v2;
+package v3;
 
 import java.util.Comparator;
+import java.util.HashMap;
 
 public class IVehiculeComparator {
-    public static Comparator<IVehicule> compareTarifCroissant() {
+    public static Comparator<IVehicule> compareTarifCroissant(HashMap<String, Tarif> tarifs) {
         return (IVehicule v1, IVehicule v2) -> {
-            return (int) (v1.calculerTarif() - v2.calculerTarif());
+            Tarif tarifV1 = tarifs.get(v1.getImmatriculation());
+            Tarif tarifV2 = tarifs.get(v2.getImmatriculation());
+            return (int) (tarifV1.calculerTarif(v1) - tarifV2.calculerTarif(v2));
         };
     }
 
-    public static Comparator<IVehicule> compareTarifDeroissant() {
+    public static Comparator<IVehicule> compareTarifDeroissant(HashMap<String, Tarif> tarifs) {
         return (IVehicule v1, IVehicule v2) -> {
-            return -1 * (int) (v1.calculerTarif() - v2.calculerTarif());
+            Tarif tarifV1 = tarifs.get(v1.getImmatriculation());
+            Tarif tarifV2 = tarifs.get(v2.getImmatriculation());
+            return -1 * ((int) (tarifV1.calculerTarif(v1) - tarifV2.calculerTarif(v2)));
         };
     }
 

@@ -1,14 +1,9 @@
-package v2;
+package v3;
 
 public class Ambulance extends Auto {
     public Ambulance(String immatriculation, int passagers, boolean toutTerrain) {
         super(immatriculation, passagers, toutTerrain);
     } 
-
-    @Override 
-    public float calculerTarif() {
-        return 0;
-    }
 
     @Override
     public IVehicule clone() {
@@ -18,6 +13,6 @@ public class Ambulance extends Auto {
     @Override
     public String toString() {
         return "Ambulance [immatriculation=" + getImmatriculation() + ", passagers=" + getPassagers() + ", toutTerrain=" + toutTerrain
-                + ", tarif: " + calculerTarif() + "]";
+                +"]";
     }
 }

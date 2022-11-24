@@ -1,7 +1,8 @@
-package v2;
+package v3;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -52,20 +53,26 @@ public class Ferry {
    * @param v : vehicule a ajouter
    * @return vrai si l'ajout a eu lieu, faux sinon
    */
-  public boolean ajouter(IVehicule v) {
-    if (getLongueur() + v.getLongueur() <= vehicleCapacity && getPassagers() + v.getPassagers() <= passagerCapacity) {
+  public boolean ajouter(IVehicule v, Tarif t) {
+    if (getLongueur() + v.getLongueur() <= vehicleCapacity && getPassagers() + v.getPassagers() <= passagerCapacity && !tarifs.containsKey(v.getImmatriculation())) {
       vehicules.add(v.clone());
+      tarifs.put(v.getImmatriculation(), t);
       return true;
     }
+
 
     return false;
   }
 
+
+
+  protected static HashMap<String, Tarif> tarifs = new HashMap<>();
+  
   // calculer le tarif de l'ensemble des vehicules presents dans le ferry
   public float calculerTarif() {
     int tarifTotal = 0;
     for (IVehicule iVehicule : vehicules) {
-      tarifTotal += iVehicule.calculerTarif();
+      tarifTotal += tarifs.get(iVehicule.getImmatriculation()).calculerTarif(iVehicule);
     }
 
     return tarifTotal;
@@ -84,6 +91,6 @@ public class Ferry {
   }
 
   public void trier() {
-    Collections.sort(vehicules, IVehiculeComparator.compareMulti(IVehiculeComparator.compareTarifCroissant(), IVehiculeComparator.compareLongueurCroissant()));
+    Collections.sort(vehicules, IVehiculeComparator.compareMulti(IVehiculeComparator.compareTarifCroissant(tarifs), IVehiculeComparator.compareLongueurCroissant()));
   }
 }

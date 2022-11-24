@@ -29,4 +29,10 @@ public class IVehiculeComparator {
             return v1.getLongueur() - v2.getLongueur();
         };
     }
+    
+    public static Comparator<IVehicule> compareLongueurDeroissant() {
+        return (IVehicule v1, IVehicule v2) -> {
+            return -1 * (v1.getLongueur() - v2.getLongueur());
+        };
+    }
 }

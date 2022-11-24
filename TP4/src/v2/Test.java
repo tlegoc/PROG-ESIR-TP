@@ -1,4 +1,4 @@
-import v2.*;
+package v2;
 
 public class Test {
     public static void main(String[] args) {
@@ -8,7 +8,7 @@ public class Test {
         do {
             double r = Math.random();
             if (r < 1.0 / 4.0)
-                v = new Auto("AA-123-AA");
+                v = new Auto("AA-123-AA", 2, false);
             else if (r < 2.0 / 4.0)
                 v = new Ambulance("CC-123-CC", 2, false);
             else if (r < 3.0 / 4.0)

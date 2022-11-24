@@ -1,4 +1,4 @@
-package v2;
+package v3;
 
 public class Cycle extends Vehicule {
 
@@ -10,18 +10,12 @@ public class Cycle extends Vehicule {
     }
 
     @Override
-    public float calculerTarif() {
-        return 20 + 15;
-    }
-
-    @Override
     public Cycle clone() {
         return new Cycle(getImmatriculation());
     }
 
     @Override
     public String toString() {
-        return "Cycle [immatriculation=" + getImmatriculation() + ", passagers=" + getPassagers() + ", tarif: " + calculerTarif()
-                + "]";
+        return "Cycle [immatriculation=" + getImmatriculation() + ", passagers=" + getPassagers() + "]";
     }
 }

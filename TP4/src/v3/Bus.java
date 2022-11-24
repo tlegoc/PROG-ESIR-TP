@@ -1,4 +1,4 @@
-package v2;
+package v3;
 
 public class Bus extends Vehicule {
 
@@ -7,14 +7,9 @@ public class Bus extends Vehicule {
     }
 
     @Override
-    public float calculerTarif() {
-        return 200 + 50 * getLongueur() + 15 * getPassagers();
-    }
-
-    @Override
     public String toString() {
         return "Bus [immatriculation=" + getImmatriculation() + ", passagers=" + getPassagers() + ", longueur=" + getLongueur()
-                + ", tarif: " + calculerTarif() + "]";
+                +"]";
     }
 
     @Override

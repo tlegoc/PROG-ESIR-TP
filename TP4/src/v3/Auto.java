@@ -1,4 +1,4 @@
-package v2;
+package v3;
 
 public class Auto extends Vehicule {
 
@@ -10,18 +10,17 @@ public class Auto extends Vehicule {
     }
 
     @Override
-    public float calculerTarif() {
-        return toutTerrain ? 350 : 100 + 15 * getPassagers();
-    }
-
-    @Override
     public String toString() {
         return "Auto [immatriculation=" + getImmatriculation() + ", passagers=" + getPassagers() + ", toutTerrain=" + toutTerrain
-                + ", tarif: " + calculerTarif() + "]";
+                + "]";
     }
 
     @Override
     public IVehicule clone() {
         return new Auto(getImmatriculation(), getPassagers(), toutTerrain);
+    }
+
+    public boolean isToutTerrain() {
+        return toutTerrain;
     }
 }
