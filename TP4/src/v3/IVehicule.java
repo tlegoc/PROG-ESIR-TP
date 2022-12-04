@@ -21,4 +21,7 @@ public interface IVehicule extends Cloneable, Comparable<IVehicule>
 
   public IVehicule clone();
 
+
+
+  //ON AURA ENLEVE CALCULERTARIF
 }

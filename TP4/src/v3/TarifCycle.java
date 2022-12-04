@@ -1,5 +1,6 @@
 package v3;
 
+//On redefini les calculs de tarif
 public class TarifCycle extends Tarif {
     protected static Tarif instance = null;
 

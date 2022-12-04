@@ -1,5 +1,14 @@
 package v2;
 
+/*
+ * 
+ * PAS DE CHANGEMENT
+ * 
+ * 
+ */
+
+
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -8,6 +17,9 @@ import java.util.List;
  * Un ferry transporte des vehicules
  */
 public class Ferry {
+  // Liste de vehicules. On pourrais faire un tableau mais il faudrait l'aggrandir
+  // a chaque fois
+  // Ici on peut juste faire vehicules.add() et ca marche
   List<IVehicule> vehicules;
   private int vehicleCapacity;
   private int passagerCapacity;

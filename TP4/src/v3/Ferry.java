@@ -1,5 +1,24 @@
 package v3;
 
+
+
+/*
+ * 
+ * Dans cette version le ferry dois pouvoir gerer soi meme les tarifs, plutot que laisser
+ * les vehicules le faire.
+ * 
+ * Pour ca on aura cree une classe abstraite Tarif qui contiendra les methodes pour calculer
+ * le tarif.
+ * 
+ * Les classes filles TarifAuto, TarifBus etc se chargent de redefinir les methodes de calcul afin que ca soit correct
+ * 
+ * 
+ * 
+ */
+
+
+
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -51,6 +70,7 @@ public class Ferry {
    * sans effet s'il n'y a plus de place
    * 
    * @param v : vehicule a ajouter
+   * @param t : tarif du vehicule
    * @return vrai si l'ajout a eu lieu, faux sinon
    */
   public boolean ajouter(IVehicule v, Tarif t) {
@@ -65,14 +85,18 @@ public class Ferry {
   }
 
 
-
+  //Table qui associe une immatriculation a un tarif
+  //Si l'immatriculation existe deja le vehicule ne sera pas ajoute
   protected static HashMap<String, Tarif> tarifs = new HashMap<>();
   
   // calculer le tarif de l'ensemble des vehicules presents dans le ferry
   public float calculerTarif() {
     int tarifTotal = 0;
     for (IVehicule iVehicule : vehicules) {
-      tarifTotal += tarifs.get(iVehicule.getImmatriculation()).calculerTarif(iVehicule);
+      //On recupere le tarif de la table
+      Tarif t = tarifs.get(iVehicule.getImmatriculation());
+      //On calcule le tarif
+      tarifTotal += t.calculerTarif(iVehicule);
     }
 
     return tarifTotal;

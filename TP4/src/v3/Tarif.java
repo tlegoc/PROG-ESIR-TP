@@ -3,7 +3,9 @@ package v3;
 import java.util.HashMap;
 
 /**
- * Tarif
+ * Classe tarif qui contient les methodes pour calculer le tarif
+ * 
+ * Cette classe ne sera pas utilisee en tant que tel, mais elle sera heritee par les classes filles
  */
 public abstract class Tarif {
 

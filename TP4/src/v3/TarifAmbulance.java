@@ -1,5 +1,7 @@
 package v3;
 
+
+//On redefini les calculs de tarif
 public class TarifAmbulance extends Tarif {
     protected static Tarif instance = null;
 

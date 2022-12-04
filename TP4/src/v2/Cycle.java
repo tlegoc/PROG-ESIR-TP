@@ -1,5 +1,7 @@
 package v2;
 
+//Comme beaucoup de code a ete modifie, on peut en enlever beaucoup de chaque vehicule
+//Le code qui etait le meme pour tout les vehicules a ete mis dans Vehicule.java
 public class Cycle extends Vehicule {
 
     public String immatriculation;
@@ -9,17 +11,20 @@ public class Cycle extends Vehicule {
         this.immatriculation = immatriculation;
     }
 
-    @Override
+    //On oublie pas le @override pour bien indiquer qu'on remplace la methode d'origine
+@Override
     public float calculerTarif() {
         return 20 + 15;
     }
 
-    @Override
+    //On oublie pas le @override pour bien indiquer qu'on remplace la methode d'origine
+@Override
     public Cycle clone() {
         return new Cycle(getImmatriculation());
     }
 
-    @Override
+    //On oublie pas le @override pour bien indiquer qu'on remplace la methode d'origine
+@Override
     public String toString() {
         return "Cycle [immatriculation=" + getImmatriculation() + ", passagers=" + getPassagers() + ", tarif: " + calculerTarif()
                 + "]";
