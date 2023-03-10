@@ -8,7 +8,6 @@ public class Bike implements Rentable<Bike> {
         this.ID = "" + this.hashCode();
     }
 
-    @Override
     public String getId() {
         return this.ID;
     }
