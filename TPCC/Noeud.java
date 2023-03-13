@@ -12,16 +12,8 @@ public class Noeud {
             return;
         }
 
-        switch (n.valeur) {
-            case 0:
-                n.valeur = 1;
-                break;
-            case 1:
-                n.valeur = 0;
-                break;
-            default:
-                break;
-        }
+        if (n.valeur == 1) n.valeur = 0;
+        else if (n.valeur == 0) n.valeur = 1;
 
         Noeud.invertArbre(n.gauche);
         Noeud.invertArbre(n.droit);

@@ -5,17 +5,17 @@ public class Convoi {
     List<Vehicule> vehicules;
 
     public Convoi() {
-        vehicules = new ArrayList<Vehicule>();
+        this.vehicules = new ArrayList<Vehicule>();
     }
 
     public void ajouter(Vehicule v) {
-        vehicules.add(v);
+        this.vehicules.add(v);
     }
 
     public double calculerVitesseMax() {
-        double vitesseMax = 0;
+        double vitesseMax = 999999999;
         for (Vehicule v : vehicules) {
-            if (v.calculerVitesseMax() > vitesseMax) {
+            if (v.calculerVitesseMax() < vitesseMax) {
                 vitesseMax = v.calculerVitesseMax();
             }
         }
@@ -24,9 +24,9 @@ public class Convoi {
 
     public double consommationTotale() {
         double consommationTotale = 0;
-        double vitesseMax = calculerVitesseMax();
-        for (Vehicule v : vehicules) {
-            consommationTotale += v.getConsommation(vitesseMax);
+        double vitesseMax = this.calculerVitesseMax();
+        for (Vehicule vehicule : vehicules) {
+            consommationTotale += vehicule.getConsommation(vitesseMax);
         }
         return consommationTotale;
     }

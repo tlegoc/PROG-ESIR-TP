@@ -19,7 +19,7 @@ public abstract class Vehicule implements IVehicule {
 
     // Question 7
     public double getConsommation(double v) {
-        return Outils.consommation(getPoidsTotal(), v);
+        return Outils.consommation(this.getPoidsTotal(), v);
     }
 
     public abstract double getPoidsTotal();
